@@ -18,5 +18,5 @@ let secondWords = ["Solutions",
 "Networks",
 "Dynamics",
 "Strategies"];
-let startupName = firstWords[4] + " " + secondWords[9]
+let startupName = firstWords[4] + " " + secondWords[8]
 console. log(`The startup: "${startupName} " contains ${startupName.length} characters`.);
