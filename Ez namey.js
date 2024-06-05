@@ -1,4 +1,4 @@
-let firstWords = ["Innovative",
+const firstWords = ["Innovative",
 "Creative",
 "Dynamic",
 "Visionary",
@@ -8,7 +8,7 @@ let firstWords = ["Innovative",
 "Tech",
 "Smart",
 "Global"];
-let secondWords = ["Solutions",
+const secondWords = ["Solutions",
 "Enterprises",
 "Technologies",
 "Innovations",
@@ -18,5 +18,7 @@ let secondWords = ["Solutions",
 "Networks",
 "Dynamics",
 "Strategies"];
-let startupName = firstWords[4] + " " + secondWords[8]
-console. log(`The startup: "${startupName} " contains ${startupName.length} characters`.);
+const randomNumber1 = Math.floor(Math.random() * 10) +1;
+const randomNumber2 = Math.floor(Math.random() * 10) +1;
+const startupName = firstWords[randomNumber1] + " "  + secondWords[randomNumber2];
+console.log(`The startup: "${startupName}" contains ${startupName.length} characters`);
