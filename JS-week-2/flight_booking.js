@@ -9,7 +9,7 @@ if (!firstname && !surname)
       fullname = "Lord " + fullname;
     }
   
-    return fullname.trim(); // Trim any extra spaces
+    return fullname.trim(); 
   }
 }
   
@@ -18,5 +18,5 @@ if (!firstname && !surname)
   const fullname2 = getFullname("Alice", "Johnson", false);
   
   // Log out the two fullname variables
-  console.log(fullname1); // Output: Lord Benjamin Hughes
-  console.log(fullname2); // Output: Alice Johnson
+  console.log(fullname1); 
+  console.log(fullname2); 
