@@ -6,5 +6,5 @@ function getWhattoWear (temInCelcius){
   }else
     return "TShirt" ;
 }
-const clothesToWear = getWhattoWear(12);
+const clothesToWear = getWhattoWear(11);
 console.log(clothesToWear)
