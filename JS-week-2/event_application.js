@@ -7,4 +7,4 @@ function weekdayCalc(days){
     console.log("The days is : "+weekdays[today.getDay()]);
 }
 
-weekdayCalc(9);
+weekdayCalc(8 );
