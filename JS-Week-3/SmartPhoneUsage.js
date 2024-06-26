@@ -44,7 +44,7 @@ function showStatus() {
     return `You have added ${totalActivities} activities. They amount to ${totalDuration} min. of usage`;
 }
 
-function mostTimeSpentActivity() {
+/*function mostTimeSpentActivity() {
     if (activities.length === 0) {
         return "No activities to analyze";
     }
@@ -56,6 +56,11 @@ function mostTimeSpentActivity() {
     
     return `You have spent the most time on ${maxActivity.activity} with ${maxActivity.duration} min.`;
 }
+
+
+
+
+
 
 
 // Example usage with more activities
