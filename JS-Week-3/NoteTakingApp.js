@@ -5,7 +5,7 @@ function saveNote(content, id) {
     content,
     id,
   };
-  notes.push({ content, id });
+  notes.push(note);
 }
 
 function getNote(id) {
