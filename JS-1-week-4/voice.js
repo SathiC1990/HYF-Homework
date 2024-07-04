@@ -18,7 +18,9 @@ const numericalRegex = /\d/;
 
 function getReply(command) {
   // Handling name introduction
-  if (command.toLowerCase().startsWith("hello my name is ")) {
+  const cleanCommand = command.toLowerCase().trim();
+
+  if (cleanCommand.startsWith("hello my name is ")) {
     userName = command.slice(17).trim();
     if (userName && userName.toLowerCase() === name.toLowerCase()) {
       return `You've already introduced yourself, ${userName}.`;
@@ -26,14 +28,31 @@ function getReply(command) {
       return `Nice to meet you, ${userName}.`;
     }
   }
-  if (command.toLowerCase().startsWith("what is my name")) {
+  /*if (command.toLowerCase().startsWith("hello my name is ")) {
+    userName = command.slice(17).trim();
+    if (userName && userName.toLowerCase() === name.toLowerCase()) {
+      return `You've already introduced yourself, ${userName}.`;
+    } else {
+      return `Nice to meet you, ${userName}.`;
+    }
+  }*/
+  /*if (command.toLowerCase().startsWith("what is my name")) {
     return `your name is ${userName}`;
-  } else if (userName == "") {
+  }*/
+ 
+    if (cleanCommand.startsWith("what is my name")){
+      return `your name is ${userName}`;
+  }
+
+    else if (userName == "") {
     return `your name is not defined`;
-  } else if (
-    command.toLowerCase().startsWith("add") &&
-    command.toLowerCase().match("to my todo")
-  ) {
+  } else if 
+    (cleanCommand.startsWith("add") &&
+    cleanCommand.match("to my todo"))
+   
+    /*command.toLowerCase().startsWith("add") &&
+    command.toLowerCase().match("to my todo")*/
+   {
     let todoStr = command.slice(4, -11);
     toDo.push(todoStr);
     return `${todoStr} added to your todo`;
