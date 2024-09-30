@@ -12,7 +12,7 @@ const loadDocuments = async () => {
     return JSON.parse(data);
   } catch (error) {
     console.error("Error reading documents.json:", error);
-    return [];
+    return { error: "Something went wrong while reading the documents." };
   }
 };
 app.get("/search", async (req, res) => {
@@ -53,27 +53,30 @@ app.get("/documents/:id", async (req, res) => {
   }
 });
 
- // POST /search - Search with query and/or specific fields
+// POST /search - Search with query and/or specific fields
 app.post("/search", async (req, res) => {
   try {
     const documents = await loadDocuments();
-    const { q } = req.query;
+    const { query } = req.query;
     const { fields } = req.body;
 
     // If both q and fields are provided, return a 400 error
-    if (q && fields) {
+    if (query && fields) {
       return res
         .status(400)
-        .json({ error: "Cannot provide both 'q' and 'fields' together." });
+        .json({
+          error:
+            "Invalid request: Please provide either a search query or fields, but not both.",
+        });
     }
 
     let filteredDocs = documents;
 
-    // Handle search by query parameter "q"
-    if (q) {
+    // Handle search by query parameter "query"
+    if (query) {
       filteredDocs = documents.filter((doc) =>
         Object.values(doc).some((value) =>
-          String(value).toLowerCase().includes(q.toLowerCase())
+          String(value).toLowerCase().includes(query.toLowerCase())
         )
       );
     }
