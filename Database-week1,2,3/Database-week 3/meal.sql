@@ -15,7 +15,7 @@ CREATE TABLE Meal (
     created_date DATE
 );
 --Create Table for Reservation
-CREATE TABLE Resevation (
+CREATE TABLE Reservation (
     id INT AUTO_INCREMENT PRIMARY KEY,
     number_of_guests INT NOT NULL,
     meal_id INT,
@@ -77,7 +77,7 @@ VALUES (
 
 --Insert Value in Reservation Table
 INSERT INTO
-    Resevation (
+    Reservation (
         number_of_guests,
         meal_id,
         created_date,
@@ -140,3 +140,45 @@ VALUES (
         5,
         '2024-09-23'
     );
+
+--Meal
+--get all meal:
+select * from Meal;
+--add a meal:
+INSERT INTO
+    Meal (
+        title,
+        description,
+        location,
+        `when`,
+        max_reservations,
+        price,
+        created_date
+    )
+VALUES (
+        'French Gourmet Night',
+        'A luxurious French meal featuring fine wines and gourmet dishes',
+        'Paris, France',
+        '2024-09-25 19:00:00',
+        30,
+        49.99,
+        '2024-09-10'
+    );
+--Get a meal by Id
+SELECT * FROM Meal WHERE Id = 3;
+
+--Update Meal
+
+UPDATE Meal
+SET
+    title = 'Italian Gourmet Dinner',
+    price = 39.99,
+    location = 'Venice, Italy'
+WHERE
+    id = 1;
+
+--Delete Meal with any id, fx 1
+ALTER TABLE Reservation DROP FOREIGN KEY Reservation_ibfk_1;
+
+ALTER TABLE Reservation
+ADD CONSTRAINT Reservation_ibfk_1 FOREIGN KEY (meal_id) REFERENCES Meal (id) ON DELETE CASCADE;
