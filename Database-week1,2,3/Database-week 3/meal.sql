@@ -182,3 +182,37 @@ ALTER TABLE Reservation DROP FOREIGN KEY Reservation_ibfk_1;
 
 ALTER TABLE Reservation
 ADD CONSTRAINT Reservation_ibfk_1 FOREIGN KEY (meal_id) REFERENCES Meal (id) ON DELETE CASCADE;
+
+--Get all reservations
+SELECT * from Reservation;
+--Add a new reservation
+INSERT INTO
+    Reservation (
+        number_of_guests,
+        meal_id,
+        created_date,
+        contact_phonenumber,
+        contact_name,
+        contact_email
+    ) value (
+        3,
+        2,
+        '2024-09-11',
+        '555-123-4567',
+        'Alice Johnson',
+        'alice@example.com'
+    );
+--Get a reservation with any id, fx 1
+SELECT * FROM Reservation WHERE id = 3;
+
+----update reservation
+UPDATE Reservation
+SET
+    number_of_guests = 5,
+    contact_phonenumber = '123-456-7890',
+    contact_name = 'Bob Smith'
+WHERE
+    id = 1;
+
+--delete a reservarion
+delete from Reservation where id = 2;
