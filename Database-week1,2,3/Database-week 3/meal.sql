@@ -88,7 +88,7 @@ INSERT INTO
 VALUES (
         4,
         1,
-        '2024-09-15',
+        '2025-05-04',
         '123-456-7890',
         'John Doe',
         'john@example.com'
@@ -96,7 +96,7 @@ VALUES (
     (
         2,
         2,
-        '2024-09-16',
+        '2024-05-05',
         '987-654-3210',
         'Jane Smith',
         'jane@example.com'
@@ -216,3 +216,35 @@ WHERE
 
 --delete a reservarion
 delete from Reservation where id = 2;
+
+--Get all reviews
+SELECT * FROM Review;
+
+--Add a new review
+insert into
+    Review (
+        title,
+        description,
+        meal_id,
+        stars,
+        created_date
+    ) value (
+        'Delicious Meal',
+        'The meal was outstanding and the service was excellent!',
+        2,
+        5,
+        '2024-09-11'
+    );
+--Get a review with any id, fx 1
+select * from Review where id = 2;
+--Update A review
+UPDATE Review
+SET
+    title = 'Amazing Experience',
+    description = 'The meal was beyond expectations! Would recommend to anyone.',
+    stars = 5
+WHERE
+    id = 1;
+
+--Delete A review
+delete from Review where id = 3;
