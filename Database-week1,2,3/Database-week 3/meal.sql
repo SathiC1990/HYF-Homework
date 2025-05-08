@@ -247,4 +247,4 @@ WHERE
     id = 1;
 
 --Delete A review
-delete from Review where id = 3;
+delete from Review where id = 2;
